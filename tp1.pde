@@ -40,7 +40,11 @@ println (frameCount) ;
     textFont (tipoletra) ;
     textSize (20) ;
     text("Ushuaia es una ciudad turística de Argentina.\n Se ubica en el archipiélago de Tierra del Fuego,\n el extremo austral de Sudamérica,\n apodado el Fin del Mundo.", width/2, pos);
-    pos = pos - 2 ;
+    pos = pos - 1 ;
+    if (tama<20) {
+      tama++; 
+   
+    }
    
     
  
@@ -98,7 +102,8 @@ text (pantalla, 50, 400) ;
   pantalla = "1" ;
   pos = 480 ; 
   pY = 640 ;
-pX= 640 ;
+pX= height/2 ;
+tama = 0 ;
  }
   
   } 
