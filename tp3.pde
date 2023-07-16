@@ -1,4 +1,4 @@
-// Agustín Scelsio
+// Agustín Scelsio, Legajo 92832/1
 // tp3
 // "La tercera expedición" Crónicas Marcianas de Ray Bradbury 
 // https://youtu.be/bqAu07EKgik link al video explicativo
