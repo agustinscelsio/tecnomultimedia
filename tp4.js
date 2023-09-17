@@ -1,5 +1,5 @@
 // Agustín Scelsio, tp4, comisión 1, legajo 92832/1 
-// link al video de youtube
+// https://youtu.be/5vS17PNTXMM
 
 let pantallas = ["Comenzar Juego", "Juego", "Ganar", "Perder"];
 let estadoJuego = 0; // El estado de juego actual (comenzando en la pantalla "Comenzar Juego")
