@@ -1,3 +1,6 @@
+//Agustín Scelsio, legajo 92832/1
+// tp5 tecnología multimedial commisión 1
+
 let juego;
 
 function setup() {
