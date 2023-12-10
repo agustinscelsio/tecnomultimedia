@@ -39,7 +39,7 @@ class JuegoInteractivo {
     this.textoPantallas[4] = "Se encuentran con una señora que \n les asegura que están en el planeta tierra";
     this.textoPantallas[5] = "Lustig se encuentra con\n sus abuelos y toman el té";
     this.textoPantallas[6] = "baja toda la tripulación\n de la nave y se encuentran con\n sus familiares, gozan de \n momentos lindos en las casas de sus familias";
-    this.textoPantallas[7] = "el capitán se encuentra con su\n hermano y deja las preocupaciones\n de lado, se encuentra realmente feliz y se siente\n como un niño en casa\n se relaja y se acuesta en su cama...";
+    this.textoPantallas[7] = "el capitán se encuentra con su\n hermano y deja las preocupaciones\n de lado, se encuentra realmente \nfeliz y se siente como un niño en casa\n se relaja y se acuesta en su cama...";
     this.textoPantallas[8] = "De pronto comienza a tener pensamientos\n macabros ¿y si son extraterrestres que se\n metieron en su mente y les mostraron\n lo que más quería ver? \n ahora se encontraban, él y toda su tripulación\n completamente indefensos. \n El capitán intenta escapar ";
     this.textoPantallas[9] = "Pero nunca llega a la puerta";
     this.textoPantallas[10] = "un tripulante no creía que esa era\n su familia, vió morir a sus padres con sus\n propios ojos y desde que los vió en vida\n estaba aterrorizado. Sacó su arma\n y disparó al aire para ver como reaccionaban\n";
@@ -49,7 +49,7 @@ class JuegoInteractivo {
     this.textoPantallas[14] = "comienzan a explorar";
     this.textoPantallas[15] = "de repente el ambiente se vuelve muy pesado,\n aparece un extraterrestre que los mira\n de pies a cabeza. el extraterrestre no abrió\n la boca pero todos escucharon \n en sus mentes sus palabras";
     this.textoPantallas[16] = "-no los hemos atacado antes porque\n necesitábamos su nave,\n mal momento para venir, está por explotar\n el planeta,\n soy el sacrificio, debo mantenerlos aquí.\n Después de eso no escucharon más nada.";
-    this.textoPantallas[17] = "Créditos\nProgramado por [Tu nombre]";
+    this.textoPantallas[17] = ".";
 
     this.botonX1 = width - this.anchoBoton * 2;
     this.botonY1 = height - this.altoBoton;
@@ -66,11 +66,10 @@ class JuegoInteractivo {
 
     if (this.jugar1==true) {
       createCanvas(600, 600)
-        
-       
-        
+
+
+
         this.objuego.dibujar()
-        
     }
 
     if (this.jugar2==true) {
@@ -87,9 +86,9 @@ class JuegoInteractivo {
       rect(150, 200, 300, 200);
       fill(0);
       textSize(15);
-      text(this.textoPantallas[this.minumero], 300, 300);
-
-      if ((this.minumero == 6 || this.minumero == 0) && !this.decisionTomada1) {
+      text(this.textoPantallas[this.minumero], 250, 300);
+      push()
+        if ((this.minumero == 6 || this.minumero == 0) && !this.decisionTomada1) {
         this.boton("Avanzar", this.botonX1, this.botonY1, this.anchoBoton, this.altoBoton, this.mouseSobreBoton1);
         this.boton("Otro camino", this.botonX2, this.botonY2, this.anchoBoton, this.altoBoton, this.mouseSobreBoton2);
       } else if (this.minumero == 9 && (!this.decisionTomada1 || !this.decisionTomada2) && !this.nuevaSecuencia) {
@@ -103,6 +102,7 @@ class JuegoInteractivo {
       image(this.fotos[17], 0, 0, 600, 600);
       this.boton("Volver al inicio", this.botonX2, this.botonY2, this.anchoBoton, this.altoBoton, this.mouseSobreBoton2);
     }
+    pop()
   }
 
   boton(etiqueta, x, y, ancho, alto, mouseSobreBoton) {
@@ -114,22 +114,25 @@ class JuegoInteractivo {
     rect(x, y, ancho, alto);
 
     fill(0);
+push()
     textAlign(CENTER, CENTER);
+
     text(etiqueta, x + ancho / 2, y + alto / 2);
+    pop()
   }
 
   reiniciar() {
-    
+
     this.minumero = 17;
     this.decisionTomada1 = false;
     this.decisionTomada2 = false;
     this.decisionTomada3 = false;
     this.nuevaSecuencia = false;
     this.jugar1=false
-    this.jugar2=false
-    this.objuego.reiniciarjuego()
-    this.objuego2.reiniciarJuego()
-    resizeCanvas(600,600)
+      this.jugar2=false
+      this.objuego.reiniciarjuego()
+      this.objuego2.reiniciarJuego()
+      resizeCanvas(600, 600)
   }
 
   avanzar() {
@@ -141,10 +144,9 @@ class JuegoInteractivo {
       this.jugar1=true
     } else if (this.minumero==16) {
       this.jugar2=true
-    }else{
-    this.jugar1=false
-    this.jugar2=false
-    
+    } else {
+      this.jugar1=false
+        this.jugar2=false
     }
     /* if (this.minumero >= this.fotos.length) {
      this.minumero = this.fotos.length - 1;
@@ -174,9 +176,9 @@ class JuegoInteractivo {
       }
     } else if ((this.minumero == 12 || this.minumero == 16) && this.nuevaSecuencia) {
       if (mouseX >= this.botonX2 && mouseX <= this.botonX2 + this.anchoBoton && mouseY >= this.botonY2 && mouseY <= this.botonY2 + this.altoBoton) {
-       this.jugar1=false
-       this.jugar2=false
-        this.reiniciar();
+        this.jugar1=false
+          this.jugar2=false
+          this.reiniciar();
       }
     } else if (this.minumero == 17) {
       if (mouseX >= this.botonX2 && mouseX <= this.botonX2 + this.anchoBoton && mouseY >= this.botonY2 && mouseY <= this.botonY2 + this.altoBoton) {
