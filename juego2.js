@@ -123,34 +123,34 @@ class juego2 {
     background(220);
 
 
-  if (this.juegoTerminado) {
-    this.boton("Volver al inicio", this.botonX2, this.botonY2, this.anchoBoton, this.altoBoton, this.mouseSobreBoton2)
-    fill(255, 0, 0);
-    textSize(32);
-    textAlign(CENTER, CENTER);
-    if (this.puntajeMarcianos >= 20 && this.disparosHumanos < 3) {
-      // Pantalla de "Ganaste"
-      fill(0, 255, 0); // Color verde para indicar que ganaste
-      text("¡Ganaste!", width / 2, height / 2);
+    if (this.juegoTerminado) {
+      this.boton("Volver al inicio", this.botonX2, this.botonY2, this.anchoBoton, this.altoBoton, this.mouseSobreBoton2)
+        fill(255, 0, 0);
+      textSize(32);
+      textAlign(CENTER, CENTER);
+      if (this.puntajeMarcianos >= 20 && this.disparosHumanos < 3) {
+        // Pantalla de "Ganaste"
+        fill(0, 255, 0); // Color verde para indicar que ganaste
+        text("¡Ganaste!", width / 2, height / 2);
+      } else {
+        // Pantalla de "Perdiste"
+        text("¡Perdiste!", width / 2, height / 2);
+      }
+      textSize(16);
+      text("Presiona ESPACIO para reiniciar", width / 2, height / 2 + 40);
+    } else if (!this.juegoComenzado) {
+      fill(0);
+      textSize(16);
+      textAlign(CENTER);
+      text("¡Bienvenido a la tercera expedición!", width / 2, 100 - 20);
+      text("Eres el último sobreviviente de la tercera expedición.", width / 2, 100);
+      text("Deberás disparar a los marcianos y no a los humanos,", width / 2, 100 + 20);
+      text("o cargarás con la culpa por el resto de tu vida.", width / 2, 100 + 40);
+      text("instrucciones", width / 2, 100 + 60);
+      text("Moverse a los costados con las flechas, disparar con la barra espaciadora", width / 2, 100 + 80);
+      text("Si se eliminan 3 humanos se pierde el juego, si se eliminan 20 marcianos se gana", width / 2, 100 + 100);
+      text("Presiona ESPACIO para comenzar", width / 2, height / 2 + 80);
     } else {
-      // Pantalla de "Perdiste"
-      text("¡Perdiste!", width / 2, height / 2);
-    }
-    textSize(16);
-    text("Presiona ESPACIO para reiniciar", width / 2, height / 2 + 40);
-  } else if (!this.juegoComenzado) {
-    fill(0);
-    textSize(16);
-    textAlign(CENTER);
-    text("¡Bienvenido a la tercera expedición!", width / 2, 100 - 20);
-    text("Eres el último sobreviviente de la tercera expedición.", width / 2, 100);
-    text("Deberás disparar a los marcianos y no a los humanos,", width / 2, 100 + 20);
-    text("o cargarás con la culpa por el resto de tu vida.", width / 2, 100 + 40);
-    text("instrucciones", width / 2, 100 + 60);
-    text("Moverse a los costados con las flechas, disparar con la barra espaciadora", width / 2, 100 + 80);
-    text("Si se eliminan 3 humanos se pierde el juego, si se eliminan 20 marcianos se gana", width / 2, 100 + 100);
-    text("Presiona ESPACIO para comenzar", width / 2, height / 2 + 80);
-  } else {
       this.jugador.mostrar();
 
       if (keyIsDown(LEFT_ARROW) && this.jugador.x > 0) {
@@ -232,9 +232,9 @@ class juego2 {
       this.balas.push(bala);
     }
 
-    if (this.juegoTerminado && key === ' ') {
-      this.reiniciarJuego();
-    }
+    /*if (this.juegoTerminado && key === ' ') {
+     this.reiniciarJuego();
+     }*/
   }
 
   reiniciarJuego() {
