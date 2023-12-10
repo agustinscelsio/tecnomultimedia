@@ -31,10 +31,13 @@ class juego1 {
       this.boton("Volver al inicio", this.botonX2, this.botonY2, this.anchoBoton, this.altoBoton, this.mouseSobreBoton2)
     }
 
-    if (this.tiempo>15) {
+    if (this.tiempo>15 && this.ganar==false & this.perder==false) {
       fill(0)
-        textSize(15)
-        text("Reglas:Tienes 20 segundos para escapar y \nesquivar a los marcianos esquivandolos con \nlas flechas del teclado", 500, 100)
+        textSize(13)
+        push()
+        textAlign(CORNER,CORNER)
+        text("Reglas:Tienes 20 segundos para escapar \nde los marcianos esquivandolos con \nlas flechas del teclado", 350, 100)
+        pop()
     }
     if (this.personaje.vida==false) {
       this.perder=true
@@ -50,11 +53,11 @@ class juego1 {
     if (this.ganar== true) {
       fill(0, 255, 0)
         textSize(30)
-        text("Ganaste", 400, 200)
+        text("Ganaste", width/2,200)
     } else if (this.perder==true) {
       fill(255, 0, 0)
         textSize(30)
-        text("PERDISTE", 400, 200)
+        text("PERDISTE",  width/2,200)
     }
 
 
